@@ -17,5 +17,4 @@ def make_text parsed_json
 end
 
 text = get_weather
-`say #{text}`   ## mac用
-# `/usr/bin/jsay.sh #{text}`   ## ラズパイ用
+`/usr/bin/jsay.sh #{text}`
