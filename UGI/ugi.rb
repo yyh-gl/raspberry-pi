@@ -15,5 +15,5 @@ if (new_global_ip != current_global_ip)
   file.close
 
   slack = Slack::Notifier.new(ENV['UGI_SLACK_WEBHOOK_URL'])  
-  slack.ping(new_global_ip)
+  slack.ping("Global IP -> #{new_global_ip}")
 end
