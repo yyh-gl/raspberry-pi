@@ -159,7 +159,7 @@ def trans_command(block2):
     bus.write_i2c_block_data(SLAVE_ADDRESS, T1_trans_start,memo_no )   #= 
 
 ###########################   main
-dir_name = '/home/pi/I2C0x52-IR/'
+dir_name = '/home/rasp-yyh/smart-home/Remocon/'
 os.chdir(dir_name)
     
 while True:
