@@ -129,8 +129,8 @@ def trans_command(block2):
     #f = open(filename,'r')
     #block2 =f.read()
     #f.close()
-    print(block2)
-    print(len(block2))
+    #print(block2)
+    #print(len(block2))
     str_tmp = ""
     int_tmp = []
     for i in range(int(len(block2)//2)):
@@ -198,7 +198,11 @@ while True:
            #print("sys.argv[2]=",sys.argv[2])
            
            #print("trans_start")
-           block2 = sys.argv[2]
+           filepath = '/home/rasp-yyh/smart-home/Remocon/' + sys.argv[2]
+           f = open(filepath,'r')
+           block2 =f.read()
+           f.close()
+           # block2 = sys.argv[2]
            #print(block2)
            trans_command(block2)
            break   
