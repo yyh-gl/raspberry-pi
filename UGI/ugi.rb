@@ -3,7 +3,7 @@ require 'slack-notifier'
 
 FILEPATH = '/home/rasp-yyh/smart-home/UGI/ugi.txt'
 
-new_global_ip = `curl ifconfig.io`.chomp
+new_global_ip = `curl -s ifconfig.io`.chomp
 
 file = File.open(FILEPATH, 'r')
 current_global_ip = file.gets.chomp
