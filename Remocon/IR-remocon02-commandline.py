@@ -198,9 +198,13 @@ while True:
            #print("sys.argv[2]=",sys.argv[2])
            
            #print("trans_start")
-           block2 = sys.argv[2]
-           #print(block2)
-           trans_command(block2)
+           # block2 = sys.argv[2]
+           # #print(block2)
+           # trans_command(block2)
+           f = open(sys.argv[2])
+           data1 = f.read()  # ファイル終端まで全て読んだデータを返す
+           f.close()
+           print(data1)
            break   
 
     print("end")
