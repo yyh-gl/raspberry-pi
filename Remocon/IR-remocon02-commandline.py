@@ -129,16 +129,16 @@ def trans_command(block2):
     #f = open(filename,'r')
     #block2 =f.read()
     #f.close()
-    #print(block2)
-    #print(len(block2))
+    print(block2)
+    print(len(block2))
     str_tmp = ""
     int_tmp = []
     for i in range(int(len(block2)//2)):
     #for i in range(len(block2)/2):
         str_tmp = block2[i*2] + block2[i*2+1]
         int_tmp.append( int(str_tmp, 16)) #python /home/pi/I2C0x52-IR/IR-remocon02-commandline.py t 
-    #print(int_tmp)  
-    #print(len(int_tmp))
+    print(int_tmp)  
+    print(len(int_tmp))
 # cmd W2_data_num_write 0x29 bus-write(ADR,cmd,3)
     data_num = int(len(int_tmp)//4)  #for test
     data_numHL = [0x31,0x32] #for test
@@ -146,7 +146,7 @@ def trans_command(block2):
     data_numHL[1] = int(data_num%256)
     bus.write_i2c_block_data(SLAVE_ADDRESS, W2_data_num_write ,  data_numHL)   #= 
 # cmd W3_data_write           0x39 bus-read(ADR,cmd,n)
-    #print(data_num)
+    print(data_num)
     data_numHL = [0x31,0x32,0x33,0x34] #for test 
     for i in range(data_num):
          data_numHL[0] = int_tmp[i*4+0]
@@ -174,9 +174,9 @@ while True:
            memo_no[0]= int(sys.argv[2])
            #print(memo_no)  
            res_data = read_command(memo_no)
-           # for i in range(len(res_data)):
-           #   print('{:02X}'.format(res_data[i]), end=""); #141
-           # print('')
+           for i in range(len(res_data)):
+             print('{:02X}'.format(res_data[i]), end=""); #141
+           print('')          
            break
            
     if  (argc  == 4):
@@ -199,10 +199,6 @@ while True:
            
            #print("trans_start")
            block2 = sys.argv[2]
-           # filepath = '/home/rasp-yyh/smart-home/Remocon/' + sys.argv[2]
-           # f = open(filepath)
-           # block2 = f.read()  # ファイル終端まで全て読んだデータを返す
-           # f.close()
            #print(block2)
            trans_command(block2)
            break   
