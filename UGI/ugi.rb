@@ -1,7 +1,7 @@
 require 'slack-notifier'
 
 
-FILEPATH = '/Users/Y_h/RaspberryPi/UGI/ugi.txt'
+FILEPATH = '/home/rasp-yyh/smart-home/UGI/ugi.txt'
 
 new_global_ip = `curl ifconfig.io`.chomp
 
