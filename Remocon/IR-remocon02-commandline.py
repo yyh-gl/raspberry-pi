@@ -198,11 +198,11 @@ while True:
            #print("sys.argv[2]=",sys.argv[2])
            
            #print("trans_start")
-           #block2 = sys.argv[2]
-           filepath = '/home/rasp-yyh/smart-home/Remocon/' + sys.argv[2]
-           f = open(filepath)
-           block2 = f.read()  # ファイル終端まで全て読んだデータを返す
-           f.close()
+           block2 = sys.argv[2]
+           # filepath = '/home/rasp-yyh/smart-home/Remocon/' + sys.argv[2]
+           # f = open(filepath)
+           # block2 = f.read()  # ファイル終端まで全て読んだデータを返す
+           # f.close()
            #print(block2)
            trans_command(block2)
            break   
