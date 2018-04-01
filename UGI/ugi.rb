@@ -1,6 +1,7 @@
 require 'slack-notifier'
 
 FILEPATH = '/home/rasp-yyh/smart-home/UGI/ugi.txt'.freeze
+LOGPATH = '/home/rasp-yyh/smart-home/UGI/ugi.log'.freeze
 
 new_global_ip = `curl -s ifconfig.io`.chomp
 
@@ -10,6 +11,10 @@ file.close
 
 if new_global_ip != current_global_ip
   file = File.open(FILEPATH, 'w')
+  file.puts(new_global_ip)
+  file.close
+
+  file = File.open(LOGPATH, 'a')
   file.puts(new_global_ip)
   file.close
 
