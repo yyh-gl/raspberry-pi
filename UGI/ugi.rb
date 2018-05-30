@@ -1,6 +1,8 @@
 require 'slack-notifier'
 require 'dotenv'
 
+Dotenv.load
+
 new_global_ip = `wget -q -O - ipcheck.ieserver.net`.chomp
 
 file = File.open(ENV['FILEPATH'], 'r')
