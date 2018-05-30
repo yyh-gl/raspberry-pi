@@ -1,20 +1,18 @@
 require 'slack-notifier'
-
-FILEPATH = '/home/rasp-yyh/smart-home/UGI/ugi.txt'.freeze
-LOGPATH = '/home/rasp-yyh/smart-home/UGI/ugi.log'.freeze
+require 'dotenv'
 
 new_global_ip = `wget -q -O - ipcheck.ieserver.net`.chomp
 
-file = File.open(FILEPATH, 'r')
+file = File.open(ENV['FILEPATH'], 'r')
 current_global_ip = file.gets.chomp
 file.close
 
 if new_global_ip != current_global_ip
-  file = File.open(FILEPATH, 'w')
+  file = File.open(ENV['FILEPATH'], 'w')
   file.puts(new_global_ip)
   file.close
 
-  file = File.open(LOGPATH, 'a')
+  file = File.open(ENV['LOGPATH'], 'a')
   file.puts(new_global_ip)
   file.close
 
